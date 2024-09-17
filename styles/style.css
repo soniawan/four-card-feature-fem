@@ -53,6 +53,7 @@ h1 {
 
 h2 {
   font-size: 24px;
+  margin-bottom: 10px;
 }
 
 h1,
@@ -62,17 +63,107 @@ h2 {
 
 .features {
   width: 100%;
+  max-width: 1100px;
   height: auto;
-  margin: 60px 120px;
+  margin: 60px 30px;
 }
 
 header {
   text-align: center;
-  width: 500px;
+  max-width: 500px;
   margin: auto;
 }
 
 .light-heading {
   display: block;
   font-weight: 200;
+}
+
+.features-list {
+  /* background-color: azure; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    ". team-builder ."
+    "supervisor team-builder calculator"
+    "supervisor karma calculator"
+    ". karma .";
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-supervisor {
+  grid-area: supervisor;
+  border-top: 5px solid var(--color-primary-cyan);
+}
+
+.feature-team-builder {
+  grid-area: team-builder;
+  border-top: 5px solid var(--color-primary-red);
+}
+
+.feature-karma {
+  grid-area: karma;
+  border-top: 5px solid var(--color-primary-orange);
+}
+
+.feature-calculator {
+  grid-area: calculator;
+  border-top: 5px solid var(--color-primary-blue);
+}
+
+.feature {
+  background-color: var(--color-secondary-light-gray);
+  height: auto;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 15px var(--color-secondary-grayish-blue);
+}
+
+.feature-icon {
+  display: block;
+  margin: 35px 0 0 auto;
+}
+
+/* Responsive */
+/* Max Width : 1000px */
+@media screen and (max-width: 1000px) {
+  .features-list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      "supervisor karma"
+      "supervisor karma"
+      "team-builder calculator"
+      "team-builder calculator";
+  }
+}
+
+/* Max width: 580px */
+@media screen and (max-width: 580px) {
+  .features-list {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-areas:
+      "supervisor"
+      "supervisor"
+      "team-builder"
+      "team-builder"
+      "karma"
+      "karma"
+      "calculator"
+      "calculator";
+  }
+}
+
+/* Max width: 465px */
+@media screen and (max-width: 465px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
 }
